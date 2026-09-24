@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ballintra — Marketing leadership for people who build things</title>
+<title>Ballintra — Marketing leadership for key business inflection points</title>
 <meta name="description" content="Go-to-market advisory for private equity sponsors, transaction leaders, and venture-backed founders. Positioning, digital marketing, and the marketing operations behind it.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -20,13 +20,13 @@
 </script>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.ballintra.com">
-<meta property="og:title" content="Ballintra — Marketing leadership for people who build things">
+<meta property="og:title" content="Ballintra — Marketing leadership for key business inflection points">
 <meta property="og:description" content="Go-to-market advisory for private equity sponsors, transaction leaders, and venture-backed founders. Positioning, digital marketing, and the marketing operations behind it.">
 <meta property="og:image" content="https://www.ballintra.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ballintra — Marketing leadership for people who build things">
+<meta name="twitter:title" content="Ballintra — Marketing leadership for key business inflection points">
 <meta name="twitter:description" content="Go-to-market advisory for private equity sponsors, transaction leaders, and venture-backed founders. Positioning, digital marketing, and the marketing operations behind it.">
 <meta name="twitter:image" content="https://www.ballintra.com/og-image.jpg">
 <style>
@@ -54,6 +54,7 @@
 }
 
 *{box-sizing:border-box;}
+html,body{overflow-x:clip;}
 html{scroll-behavior:smooth;}
 body{
   margin:0;
@@ -143,7 +144,7 @@ nav{
 
 h1{
   font-family:var(--display);
-  font-weight:300;
+  font-weight:400;
   font-size:clamp(40px,5.6vw,74px);
   line-height:1.06;
   letter-spacing:-.018em;
@@ -153,7 +154,7 @@ h1{
 h1 em{font-style:italic;color:var(--navy);}
 h2{
   font-family:var(--display);
-  font-weight:300;
+  font-weight:400;
   font-size:clamp(28px,3.4vw,42px);
   line-height:1.18;
   letter-spacing:-.012em;
@@ -217,6 +218,16 @@ footer .mark-glyph-sm{height:1.1em;width:auto;fill:var(--muted);vertical-align:-
 .hero-photo .lede{color:#E4DFD3;margin:0 auto 30px;}
 .btn-photo{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:var(--paper);padding:15px 26px;transition:background .2s ease;}
 .btn-photo:hover{background:#fff;}
+.cta-photo{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;color:#F4EFE4;border-bottom:1px solid var(--gold);padding-bottom:5px;transition:color .18s ease;}
+.cta-photo span{display:inline-block;margin-left:.45em;transition:transform .2s ease;}
+.cta-photo:hover{color:#fff;}
+.cta-photo:hover span{transform:translateX(4px);}
+
+.audience{display:grid;grid-template-columns:140px var(--col);gap:48px;padding:22px 0;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+.audience-label{color:var(--muted);}
+.audience ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;row-gap:8px;color:var(--ink);}
+.audience li+li::before{content:"·";color:var(--brass);margin:0 1.1em;}
+@media (max-width:820px){.audience{grid-template-columns:1fr;gap:10px;}.audience ul{flex-direction:column;}.audience li+li::before{content:none;}}
 @media (max-width:820px){.hero-mark{width:150px;right:-20px;opacity:.06;}.hero-photo{min-height:460px;}.hero-photo-content{padding:70px 26px;max-width:100%;}.hero-photo h1{max-width:18ch;}}
 
 a.link{
@@ -273,7 +284,7 @@ a.link:hover{color:var(--brass);}
 .contact-line{
   font-family:var(--display);
   font-size:clamp(26px,3.6vw,44px);
-  font-weight:300;
+  font-weight:400;
   letter-spacing:-.01em;
 }
 
@@ -334,7 +345,7 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
   .cite a{color:var(--muted);border-bottom:1px solid var(--rule);text-decoration:none;}
   .cite a:hover{color:var(--ink);border-color:var(--brass);}
   .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px 44px;margin:6px 0 4px;}
-  .stat .fig{font-family:var(--display);font-weight:300;font-size:clamp(38px,4.6vw,58px);line-height:1;letter-spacing:-.02em;color:var(--navy);}
+  .stat .fig{font-family:var(--display);font-weight:400;font-size:clamp(38px,4.6vw,58px);line-height:1;letter-spacing:-.02em;color:var(--navy);}
   .stat .cap{font-size:14px;line-height:1.55;color:var(--muted);margin-top:12px;max-width:30ch;}
   .stat .cap a{color:var(--muted);border-bottom:1px solid var(--rule);text-decoration:none;}
   .stat .cap a:hover{color:var(--ink);border-color:var(--brass);}
@@ -345,6 +356,11 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
   .page{display:none;}
   .page.on{display:block;}
 
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+
 /* Scroll reveal */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
@@ -354,6 +370,19 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
 .entry:hover{background:var(--paper-2);}
 .entry:hover h3{color:var(--brass);transition:color .2s ease;}
 .entry h3{transition:color .2s ease;}
+.stat-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 36px;}
+@media (max-width:1100px){.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:520px){.stat-grid{grid-template-columns:1fr;}}
+a.entry{color:inherit;text-decoration:none;position:relative;}
+a.entry p{color:var(--muted);}
+a.entry .meta{color:var(--muted);max-width:none;}
+a.entry::after{content:"→";position:absolute;right:28px;top:34px;font-family:var(--mono);font-size:16px;color:var(--brass);opacity:0;transform:translateX(-6px);transition:opacity .2s ease,transform .2s ease;}
+a.entry:hover::after,a.entry:focus-visible::after{opacity:1;transform:none;}
+.entry+.entry{border-top:1px solid var(--rule);}
+.cta{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--brass);padding-bottom:5px;transition:color .18s ease;}
+.cta span{display:inline-block;margin-left:.45em;transition:transform .2s ease;}
+.cta:hover{color:var(--brass);}
+.cta:hover span{transform:translateX(4px);}
 .stat{transition:transform .3s ease;}
 .stat:hover .fig{color:var(--brass);transition:color .25s ease;}
 .stat .fig{transition:color .25s ease;}
@@ -378,13 +407,22 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
 
 <section class="hero-photo">
   <div class="hero-photo-content">
-    <svg class="hero-photo-mark" viewBox="42 48 116 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><polygon points="42,168 66,168 102,48 82,58"/><polygon points="158,168 134,168 98,48 118,58"/></svg>
     <p class="eyebrow">Marketing &amp; Strategic Communications</p>
     <h1>Marketing leadership for key <em>business inflection points</em>.</h1>
-    <p class="lede">Ballintra partners with private equity sponsors, transaction leaders, venture-backed founders, and advocacy initiatives to build the go-to-market architecture—positioning, digital marketing, and the high-velocity operations behind it—that holds up in the data room, the boardroom, and the field.</p>
-    <a class="btn-photo" href="/contact">Start a conversation</a>
+    <p class="lede">Ballintra builds the go-to-market architecture—positioning, digital marketing, and the high-velocity operations behind it—that holds up in the data room, the boardroom, and the field.</p>
+    <a class="cta-photo" href="/contact">Start a conversation<span aria-hidden="true">→</span></a>
   </div>
 </section>
+
+<div class="audience">
+  <div class="audience-label">Working with</div>
+  <ul>
+    <li>Private equity sponsors</li>
+    <li>Transaction leaders</li>
+    <li>Venture-backed founders</li>
+    <li>Mission-driven organizations</li>
+  </ul>
+</div>
 
 <section class="sheet reveal">
   <div class="runhead"><span>01</span>Position</div>
@@ -406,49 +444,74 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
 </section>
 
 <section class="sheet reveal">
-  <div class="runhead"><span>03</span>Services</div>
+  <div class="runhead"><span>03</span>Track Record</div>
   <div>
-    <div class="entry">
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="fig">$89M+</div>
+        <div class="cap">Pipeline influenced in the most recent role as VP of Global Digital Marketing.</div>
+      </div>
+      <div class="stat">
+        <div class="fig">3X</div>
+        <div class="cap">Pipeline growth in six months, building a new outbound channel from zero.</div>
+      </div>
+      <div class="stat">
+        <div class="fig">1.1M+</div>
+        <div class="cap">Net-new social followers gained against larger, better-funded competitors.</div>
+      </div>
+      <div class="stat">
+        <div class="fig">25+</div>
+        <div class="cap">Years in marketing leadership.</div>
+      </div>
+    </div>
+    <p style="margin-top:34px;"><a class="link" href="/about">About the founder</a></p>
+  </div>
+</section>
+
+<section class="sheet reveal">
+  <div class="runhead"><span>04</span>Services</div>
+  <div>
+    <a class="entry" href="/services#growth-diagnostic">
       <h3>Growth Diagnostic</h3>
-      <p>Marketing teams generate activity, campaigns, and spend, but boards often lack visibility into what actually drives pipeline. Ballintra runs an unbiased operational read: the funnel, the channels, the messaging, and where they're leaking.</p>
+      <p>An unbiased operational read of the funnel, the channels, and the messaging, and where they're leaking.</p>
       <p class="meta">Fixed scope · Entry engagement</p>
-    </div>
-    <div class="entry">
+    </a>
+    <a class="entry" href="/services#fractional-cmo">
       <h3>Fractional CMO &amp; Growth Leadership</h3>
-      <p>Embedded leadership that holds the whole go-to-market narrative — owning strategy, positioning, the demand engine, and revenue performance rather than a single slice of it.</p>
+      <p>Embedded leadership that owns strategy, positioning, the demand engine, and revenue performance.</p>
       <p class="meta">Ongoing retainer · PE Assets, Startups &amp; Middle Market</p>
-    </div>
-    <div class="entry">
+    </a>
+    <a class="entry" href="/services#brand-comms">
       <h3>Brand, Comms &amp; Social Strategy</h3>
-      <p>Strategic narrative, corporate positioning, M&amp;A integration, executive social presence, investor communications, and change management during critical milestones.</p>
+      <p>Strategic narrative, M&amp;A integration, investor communications, and executive presence at critical milestones.</p>
       <p class="meta">Fixed scope or advisory retainer</p>
-    </div>
-    <div class="entry">
+    </a>
+    <a class="entry" href="/services#digital-engine">
       <h3>Digital Marketing &amp; Execution</h3>
-      <p>Hands-on execution across campaigns, demand generation, social publishing, search, websites, and video — run through AI-enabled Modern Marketing Operations.</p>
+      <p>Campaigns, demand generation, social, search, websites, and video, run through AI-enabled Modern Marketing Operations.</p>
       <p class="meta">Project or ongoing execution</p>
-    </div>
-    <div class="entry">
+    </a>
+    <a class="entry" href="/services#ai-optimization">
       <h3>AI Marketing Optimization &amp; Training</h3>
-      <p>Hands-on enablement so your team can run the same AI-enabled workflows in-house — prompt practice, automation, and operating playbooks that raise output without adding headcount.</p>
+      <p>Hands-on enablement so your team can run AI-enabled workflows in-house, without adding headcount.</p>
       <p class="meta">Workshops · Team Enablement · Custom Playbooks</p>
-    </div>
+    </a>
     <p style="margin-top:30px;"><a class="link" href="/services">Explore engagement models</a></p>
   </div>
 </section>
 
 <section class="sheet reveal">
-  <div class="runhead"><span>04</span>Contact</div>
+  <div class="runhead"><span>05</span>Contact</div>
   <div>
     <p class="contact-line">Tell us about your business, deal, or growth objectives.</p>
-    <p class="dim" style="margin-top:22px;">Direct outreach is answered within one business day.</p>
-    <p><a class="link" href="mailto:hello@ballintra.com">hello@ballintra.com</a></p>
+    <p style="margin:30px 0 26px;"><a class="cta" href="/contact">Start a conversation<span aria-hidden="true">→</span></a></p>
+    <p class="dim small">Or email <a class="link" href="mailto:hello@ballintra.com">hello@ballintra.com</a> — direct outreach is answered within one business day.</p>
   </div>
 </section>
 
 <footer>
   <span><svg class="mark-glyph-sm" viewBox="42 48 116 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><polygon points="42,168 66,168 102,48 82,58"/><polygon points="158,168 134,168 98,48 118,58"/></svg>Ballintra</span>
-  <span><a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="mailto:hello@ballintra.com">hello@ballintra.com</a></span>
+  <span><a href="https://www.linkedin.com/company/ballintra/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="mailto:hello@ballintra.com">hello@ballintra.com</a></span>
 </footer>
 
 </div>
@@ -478,10 +541,17 @@ if('IntersectionObserver' in window && revealEls.length){
 }
 
 var heroPhoto = document.querySelector('.hero-photo');
-if(heroPhoto){
+var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(heroPhoto && !reduceMotion){
+  var ticking = false;
   window.addEventListener('scroll', function(){
-    var offset = Math.min(window.scrollY * 0.15, 60);
-    heroPhoto.style.backgroundPosition = 'center calc(50% - ' + offset + 'px)';
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      var offset = Math.min(window.scrollY * 0.15, 60);
+      heroPhoto.style.backgroundPosition = 'center calc(50% - ' + offset + 'px)';
+      ticking = false;
+    });
   }, {passive:true});
 }
 </script>
