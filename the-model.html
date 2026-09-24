@@ -143,7 +143,7 @@ nav{
 
 h1{
   font-family:var(--display);
-  font-weight:300;
+  font-weight:400;
   font-size:clamp(40px,5.6vw,74px);
   line-height:1.06;
   letter-spacing:-.018em;
@@ -153,7 +153,7 @@ h1{
 h1 em{font-style:italic;color:var(--navy);}
 h2{
   font-family:var(--display);
-  font-weight:300;
+  font-weight:400;
   font-size:clamp(28px,3.4vw,42px);
   line-height:1.18;
   letter-spacing:-.012em;
@@ -244,7 +244,7 @@ a.link:hover{color:var(--brass);}
 .contact-line{
   font-family:var(--display);
   font-size:clamp(26px,3.6vw,44px);
-  font-weight:300;
+  font-weight:400;
   letter-spacing:-.01em;
 }
 
@@ -305,7 +305,7 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
   .cite a{color:var(--muted);border-bottom:1px solid var(--rule);text-decoration:none;}
   .cite a:hover{color:var(--ink);border-color:var(--brass);}
   .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px 44px;margin:6px 0 4px;}
-  .stat .fig{font-family:var(--display);font-weight:300;font-size:clamp(38px,4.6vw,58px);line-height:1;letter-spacing:-.02em;color:var(--navy);}
+  .stat .fig{font-family:var(--display);font-weight:400;font-size:clamp(38px,4.6vw,58px);line-height:1;letter-spacing:-.02em;color:var(--navy);}
   .stat .cap{font-size:14px;line-height:1.55;color:var(--muted);margin-top:12px;max-width:30ch;}
   .stat .cap a{color:var(--muted);border-bottom:1px solid var(--rule);text-decoration:none;}
   .stat .cap a:hover{color:var(--ink);border-color:var(--brass);}
@@ -315,6 +315,59 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
   .refs a:hover{border-color:var(--brass);color:var(--brass);}
   .page{display:none;}
   .page.on{display:block;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+
+
+/* Quiet text CTA (matches homepage) */
+.cta{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--brass);padding-bottom:5px;transition:color .18s ease;}
+.cta span{display:inline-block;margin-left:.45em;transition:transform .2s ease;}
+.cta:hover{color:var(--brass);}
+.cta:hover span{transform:translateX(4px);}
+
+/* Stats: clean 4 / 2 / 1 grid */
+.stat-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 36px;margin-top:34px;}
+@media (max-width:1100px){.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:520px){.stat-grid{grid-template-columns:1fr;}}
+.cite{margin-top:26px;}
+.cite a{color:var(--muted);}
+
+/* Operating-model diagram: HTML, reflows on small screens */
+.model-diagram{margin:40px 0 36px;max-width:720px;}
+.md-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);text-align:center;margin:0 0 18px;max-width:none;}
+.md-lead{background:var(--navy);color:var(--paper);text-align:center;padding:26px 28px 24px;border-top:3px solid var(--gold);max-width:420px;margin:0 auto;}
+.md-lead .md-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;}
+.md-lead .md-title{font-family:var(--display);font-size:24px;line-height:1.2;display:block;}
+.md-split,.md-join{position:relative;height:44px;}
+.md-split::before{content:"";position:absolute;left:50%;top:0;height:22px;border-left:1px solid var(--brass);}
+.md-split::after{content:"";position:absolute;left:calc(25% - 6px);right:calc(25% - 6px);top:22px;height:22px;border:1px solid var(--brass);border-bottom:none;}
+.md-join::before{content:"";position:absolute;left:50%;top:22px;height:22px;border-left:1px solid var(--brass);}
+.md-join::after{content:"";position:absolute;left:calc(25% - 6px);right:calc(25% - 6px);top:0;height:22px;border:1px solid var(--brass);border-top:none;}
+.md-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.md-node{border:1px solid var(--rule);background:var(--paper);padding:22px 24px 20px;}
+.md-node .md-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:8px;}
+.md-node h3{font-size:24px;margin:0 0 8px;}
+.md-node p{font-size:15px;line-height:1.55;color:var(--muted);margin:0 0 14px;}
+.md-node .md-foot{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-top:1px solid var(--rule);padding-top:12px;display:block;}
+.md-out{text-align:center;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:22px 20px;}
+.md-out .md-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:10px;}
+.md-out .md-title{font-family:var(--display);font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.3;color:var(--navy);display:block;}
+@media (max-width:640px){
+  .md-pair{grid-template-columns:1fr;gap:14px;}
+  .md-split::after,.md-join::after{display:none;}
+  .md-split::before,.md-join::before{top:0;height:44px;}
+  .md-split,.md-join{height:36px;}
+  .md-split::before,.md-join::before{height:36px;}
+}
+
+/* Numbered reference list */
+.refs{counter-reset:ref;}
+.refs li{counter-increment:ref;}
+.refs li::before{content:counter(ref) ".";display:inline-block;width:24px;text-indent:0;font-family:var(--mono);font-size:12px;color:var(--brass);}
+.refs li:target{background:var(--paper-2);}
 
 /* Scroll reveal */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
@@ -354,84 +407,11 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
   <p class="lede">Budgets are flat, agency spend is being cut, and AI has changed what a small team can deliver. Ballintra is built for this environment: executive-led strategy and hands-on execution, run as Modern Marketing Operations rather than headcount or retainers.</p>
 </section>
 
-<svg viewBox="0 0 800 640" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:100%;margin:40px 0;display:block;">
-  <rect width="800" height="640" fill="#F4EFE4"/>
-
-  <!-- Top label -->
-  <text x="400" y="42" font-family="monospace" font-size="12" fill="#7E6115" text-anchor="middle" letter-spacing="3">MARKETING, RESTRUCTURED</text>
-
-  <!-- Leadership box (top center) -->
-  <rect x="270" y="70" width="260" height="90" fill="#C9A227" rx="3"/>
-  <circle cx="320" cy="115" r="26" fill="#F4EFE4"/>
-  <circle cx="320" cy="107" r="7" fill="#16232E"/>
-  <path d="M 307 126 Q 307 114 320 114 Q 333 114 333 126 Z" fill="#16232E"/>
-  <text x="365" y="105" font-family="sans-serif" font-size="13" fill="#16232E" font-weight="600">SENIOR</text>
-  <text x="365" y="122" font-family="sans-serif" font-size="13" fill="#16232E" font-weight="600">MARKETING</text>
-  <text x="365" y="139" font-family="sans-serif" font-size="13" fill="#16232E" font-weight="600">LEADERSHIP</text>
-
-  <!-- Connector -->
-  <line x1="400" y1="160" x2="400" y2="185" stroke="#7E6115" stroke-width="1.5"/>
-  <line x1="250" y1="185" x2="550" y2="185" stroke="#7E6115" stroke-width="1.5"/>
-  <line x1="250" y1="185" x2="250" y2="210" stroke="#7E6115" stroke-width="1.5"/>
-  <line x1="550" y1="185" x2="550" y2="210" stroke="#7E6115" stroke-width="1.5"/>
-
-  <!-- Left box: AI Agents -->
-  <rect x="110" y="210" width="280" height="150" fill="none" stroke="#7E6115" stroke-width="1.5" rx="3"/>
-  <text x="250" y="248" font-family="Playfair Display, Georgia, serif" font-size="22" fill="#16232E" text-anchor="middle">AI Agents</text>
-  <text x="250" y="278" font-family="sans-serif" font-size="12" fill="#6B675C" text-anchor="middle">Content, campaigns, targeting,</text>
-  <text x="250" y="296" font-family="sans-serif" font-size="12" fill="#6B675C" text-anchor="middle">and reporting at machine speed</text>
-  <g>
-    <circle cx="190" cy="330" r="15" fill="none" stroke="#7E6115" stroke-width="1.2"/>
-    <rect x="183" y="323" width="14" height="14" rx="2" fill="none" stroke="#7E6115" stroke-width="1"/>
-    <circle cx="190" cy="330" r="2.5" fill="#7E6115"/>
-    <circle cx="230" cy="330" r="15" fill="none" stroke="#7E6115" stroke-width="1.2"/>
-    <rect x="223" y="323" width="14" height="14" rx="2" fill="none" stroke="#7E6115" stroke-width="1"/>
-    <circle cx="230" cy="330" r="2.5" fill="#7E6115"/>
-    <circle cx="270" cy="330" r="15" fill="none" stroke="#7E6115" stroke-width="1.2"/>
-    <rect x="263" y="323" width="14" height="14" rx="2" fill="none" stroke="#7E6115" stroke-width="1"/>
-    <circle cx="270" cy="330" r="2.5" fill="#7E6115"/>
-    <circle cx="310" cy="330" r="15" fill="none" stroke="#7E6115" stroke-width="1.2"/>
-    <rect x="303" y="323" width="14" height="14" rx="2" fill="none" stroke="#7E6115" stroke-width="1"/>
-    <circle cx="310" cy="330" r="2.5" fill="#7E6115"/>
-  </g>
-
-  <!-- Right box: Global Talent -->
-  <rect x="410" y="210" width="280" height="150" fill="none" stroke="#6B675C" stroke-width="1.5" rx="3"/>
-  <text x="550" y="248" font-family="Playfair Display, Georgia, serif" font-size="22" fill="#16232E" text-anchor="middle">Global Talent</text>
-  <text x="550" y="278" font-family="sans-serif" font-size="12" fill="#6B675C" text-anchor="middle">Vetted technical and creative</text>
-  <text x="550" y="296" font-family="sans-serif" font-size="12" fill="#6B675C" text-anchor="middle">resources from across the world</text>
-  <g>
-    <circle cx="490" cy="325" r="7" fill="#6B675C"/>
-    <path d="M 481 340 Q 481 330 490 330 Q 499 330 499 340 Z" fill="#6B675C"/>
-    <circle cx="530" cy="325" r="7" fill="#6B675C"/>
-    <path d="M 521 340 Q 521 330 530 330 Q 539 330 539 340 Z" fill="#6B675C"/>
-    <circle cx="570" cy="325" r="7" fill="#6B675C"/>
-    <path d="M 561 340 Q 561 330 570 330 Q 579 330 579 340 Z" fill="#6B675C"/>
-    <circle cx="610" cy="325" r="7" fill="#6B675C"/>
-    <path d="M 601 340 Q 601 330 610 330 Q 619 330 619 340 Z" fill="#6B675C"/>
-  </g>
-
-  <text x="250" y="392" font-family="sans-serif" font-size="12" fill="#7E6115" text-anchor="middle" font-weight="600">Scalable agent capacity</text>
-  <text x="550" y="392" font-family="sans-serif" font-size="12" fill="#6B675C" text-anchor="middle" font-weight="600">Scalable global headcount</text>
-
-  <!-- Output label ABOVE the box, matching top label pattern -->
-  <text x="400" y="452" font-family="monospace" font-size="12" fill="#7E6115" text-anchor="middle" letter-spacing="3">THE OUTPUT</text>
-
-  <!-- Output box (bottom) - now just the statement, centered -->
-  <rect x="110" y="470" width="580" height="80" fill="none" stroke="#7E6115" stroke-width="1.5" rx="3"/>
-  <text x="400" y="505" font-family="Playfair Display, Georgia, serif" font-size="15" fill="#16232E" text-anchor="middle" font-style="italic">High-impact, low-cost marketing — enterprise-grade</text>
-  <text x="400" y="525" font-family="Playfair Display, Georgia, serif" font-size="15" fill="#16232E" text-anchor="middle" font-style="italic">capability without enterprise overhead.</text>
-</svg>
-
-<div style="margin:48px 0 36px;max-width:62ch;">
-  <p>This is how Modern Marketing Operations works. Executive-led strategy paired with AI-enabled execution and global talent, assembled as a single accountable unit. No department overhead. No agency markup. Just senior leadership, AI agents that scale, and vetted resources working in concert.</p>
-  <p style="margin-top:16px;color:#6B675C;font-size:15px;">The leader — a founder or operator who has held the P&amp;L — owns the strategy and the outcomes. The AI handles velocity and precision in execution. Global talent delivers craft at speed. The result: enterprise-grade marketing delivered lean.</p>
-</div>
-
-
 <section class="sheet reveal">
-  <div class="runhead"><span>01</span>The Numbers</div>
+  <div class="runhead"><span>01</span>The Squeeze</div>
   <div>
+    <h2>The old way of scaling marketing has stopped working.</h2>
+    <p>For two decades, marketing scaled by adding headcount or agency retainers. That model is breaking: budgets have flatlined, and CMOs are cutting agencies and roles to fund what works. Marketing now has to run lean and tie directly to revenue.</p>
     <div class="stat-grid">
       <div class="stat">
         <div class="fig">7.7%</div>
@@ -450,60 +430,90 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
         <div class="cap">Of CMOs say generative AI has already reduced their reliance on outside agencies for creative and strategy.</div>
       </div>
     </div>
-    <p class="cite" style="margin-top:8px;">Source: <a href="https://www.gartner.com/en/newsroom/press-releases/2025-05-12-gartner-2025-cmo-spend-survey-reveals-marketing-budgets-have-flatlined-at-seven-percent-of-overall-company-revenue" target="_blank" rel="noopener">Gartner 2025 CMO Spend Survey</a>, of 402 marketing leaders across North America and Europe.</p>
+    <p class="cite">Source: <a href="#ref-1">Gartner, 2025</a> — survey of 402 marketing leaders in North America, the UK and Europe.</p>
   </div>
 </section>
 
 <section class="sheet reveal">
-  <div class="runhead"><span>02</span>The Squeeze</div>
-  <div>
-    <h2>The old way of scaling marketing has stopped working.</h2>
-    <p>For two decades, marketing scaled by adding headcount or agency retainers. That model is breaking, and 39% of CMOs are already cutting agency relationships. Marketing now has to run lean and tie directly to revenue.</p>
-    <p class="cite">Source: <a href="https://www.gartner.com/en/newsroom/press-releases/2025-05-12-gartner-2025-cmo-spend-survey-reveals-marketing-budgets-have-flatlined-at-seven-percent-of-overall-company-revenue" target="_blank" rel="noopener">Gartner 2025 CMO Spend Survey</a>.</p>
-  </div>
-</section>
-
-<section class="sheet reveal">
-  <div class="runhead"><span>03</span>The Leverage</div>
+  <div class="runhead"><span>02</span>The Leverage</div>
   <div>
     <h2>AI-enabled workflows change what a small team can deliver.</h2>
-    <p>The answer to a flat budget isn't more hours, it's a different way of working. McKinsey estimates generative AI could unlock $463 billion in annual value across marketing and sales alone. Paired with global talent, lean teams now do full-department work.</p>
-    <p class="cite">Source: McKinsey &amp; Company, <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" rel="noopener">The economic potential of generative AI</a>.</p>
+    <p>The answer to a flat budget isn't more hours; it's a different way of working. McKinsey estimates generative AI could lift marketing productivity by 5 to 15 percent of total marketing spend — about $463 billion a year. Paired with global talent, lean teams now do full-department work.</p>
+    <p class="cite">Source: <a href="#ref-2">McKinsey &amp; Company, 2023</a>.</p>
   </div>
 </section>
 
 <section class="sheet reveal">
-  <div class="runhead"><span>04</span>The Shift</div>
+  <div class="runhead"><span>03</span>The Shift</div>
   <div>
     <h2>Discovery is moving from search to AI answer engines.</h2>
-    <p>Buyers now discover vendors through AI assistants and generative search, not blue links. Competition shifts from raw spend to relevance inside AI-powered ecosystems. Being legible to models is now part of good positioning and PR.</p>
-    <p class="cite">Source: McKinsey &amp; Company, <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/where-ai-will-create-value-and-where-it-wont" target="_blank" rel="noopener">Where AI will create value — and where it won't</a> (2025).</p>
+    <p>Buyers increasingly find vendors through AI assistants and generative search, not blue links. As AI agents turn intent into curated recommendations, competition moves from visibility and spend toward relevance and positioning. Being legible to models is now part of good positioning and PR.</p>
+    <p class="cite">Source: <a href="#ref-3">McKinsey &amp; Company, 2026</a>.</p>
   </div>
 </section>
 
 <section class="sheet reveal">
-  <div class="runhead"><span>05</span>The Model</div>
+  <div class="runhead"><span>04</span>The Model</div>
   <div>
     <h2>Modern Marketing Operations.</h2>
     <p>Ballintra is not an agency and not a traditional consultancy. It's an executive-led model where strategy and execution stay in the same hands, one seat owning the whole go-to-market rather than a fragment of it.</p>
+
+    <figure class="model-diagram" aria-label="Modern Marketing Operations: senior marketing leadership directs AI agents and global talent to produce enterprise-grade marketing without enterprise overhead.">
+      <p class="md-label">Marketing, restructured</p>
+      <div class="md-lead">
+        <span class="md-tag">Owns strategy &amp; outcomes</span>
+        <span class="md-title">Senior marketing leadership</span>
+      </div>
+      <div class="md-split" aria-hidden="true"></div>
+      <div class="md-pair">
+        <div class="md-node">
+          <span class="md-tag">Velocity</span>
+          <h3>AI agents</h3>
+          <p>Content, campaigns, targeting, and reporting at machine speed.</p>
+          <span class="md-foot">Scalable agent capacity</span>
+        </div>
+        <div class="md-node">
+          <span class="md-tag">Craft</span>
+          <h3>Global talent</h3>
+          <p>Vetted technical and creative specialists from across the world.</p>
+          <span class="md-foot">Scalable global headcount</span>
+        </div>
+      </div>
+      <div class="md-join" aria-hidden="true"></div>
+      <div class="md-out">
+        <span class="md-tag">The output</span>
+        <span class="md-title">High-impact, low-cost marketing — enterprise-grade capability without enterprise overhead.</span>
+      </div>
+    </figure>
+
+    <p class="dim">The leader — a founder or operator who has held the P&amp;L — owns the strategy and the outcomes. AI handles velocity and precision in execution. Global talent delivers craft at speed. No department overhead, no agency markup.</p>
     <p><a class="link" href="/services">See how engagements work</a></p>
   </div>
 </section>
 
 <section class="sheet reveal">
-  <div class="runhead"><span>06</span>References</div>
+  <div class="runhead"><span>05</span>Start</div>
   <div>
-    <ul class="refs" style="margin:0;padding:0;">
-      <li>Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2025-05-12-gartner-2025-cmo-spend-survey-reveals-marketing-budgets-have-flatlined-at-seven-percent-of-overall-company-revenue" target="_blank" rel="noopener">2025 CMO Spend Survey: Marketing Budgets Have Flatlined at 7.7% of Revenue</a> (May 2025).</li>
-      <li>McKinsey &amp; Company, <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" rel="noopener">The Economic Potential of Generative AI: The Next Productivity Frontier</a>.</li>
-      <li>McKinsey &amp; Company, <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/where-ai-will-create-value-and-where-it-wont" target="_blank" rel="noopener">Where AI Will Create Value — and Where It Won't</a> (2025).</li>
-    </ul>
+    <p class="contact-line">Tell us about your business, deal, or growth objectives.</p>
+    <p style="margin:30px 0 26px;"><a class="cta" href="/contact">Start a conversation<span aria-hidden="true">→</span></a></p>
+    <p class="dim small">Or email <a class="link" href="mailto:hello@ballintra.com">hello@ballintra.com</a> — direct outreach is answered within one business day.</p>
+  </div>
+</section>
+
+<section class="sheet reveal">
+  <div class="runhead"><span>06</span>Sources</div>
+  <div>
+    <ol class="refs" style="margin:0;padding:0;">
+      <li id="ref-1">Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2025-05-12-gartner-2025-cmo-spend-survey-reveals-marketing-budgets-have-flatlined-at-seven-percent-of-overall-company-revenue" target="_blank" rel="noopener">Gartner 2025 CMO Spend Survey Reveals Marketing Budgets Have Flatlined at 7.7% of Overall Company Revenue</a> (May 2025).</li>
+      <li id="ref-2">McKinsey &amp; Company, <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-generative-ai-can-boost-consumer-marketing" target="_blank" rel="noopener">How Generative AI Can Boost Consumer Marketing</a> (December 2023).</li>
+      <li id="ref-3">McKinsey &amp; Company, <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/where-ai-will-create-value-and-where-it-wont" target="_blank" rel="noopener">AI Productivity Gains and the Performance Paradox</a> (April 2026).</li>
+    </ol>
   </div>
 </section>
 
 <footer>
   <span><svg class="mark-glyph-sm" viewBox="42 48 116 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><polygon points="42,168 66,168 102,48 82,58"/><polygon points="158,168 134,168 98,48 118,58"/></svg>Ballintra</span>
-  <span><a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="mailto:hello@ballintra.com">hello@ballintra.com</a></span>
+  <span><a href="https://www.linkedin.com/company/ballintra/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="mailto:hello@ballintra.com">hello@ballintra.com</a></span>
 </footer>
 
 </div>
