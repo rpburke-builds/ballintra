@@ -374,6 +374,13 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
   <div>
     <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
       <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="utm_content" value="">
+      <input type="hidden" name="utm_term" value="">
+      <input type="hidden" name="landing_page" value="">
+      <input type="hidden" name="referrer" value="">
       <p style="display:none;">
         <label>Don't fill this out if you're human: <input name="bot-field"></label>
       </p>
@@ -433,6 +440,41 @@ if('IntersectionObserver' in window && revealEls.length){
 } else {
   revealEls.forEach(function(el){ el.classList.add('in'); });
 }
+
+// Campaign attribution: remember UTM tags for this visit (session only,
+// no cookies) so the contact form can include them in the submission.
+(function(){
+  var KEY = 'ballintra_attribution';
+  var FIELDS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var store;
+  try { store = window.sessionStorage; store.getItem(KEY); } catch(e){ return; }
+  try {
+    var q = new URLSearchParams(location.search), tags = {}, has = false;
+    FIELDS.forEach(function(k){
+      var v = q.get(k);
+      if(v){ tags[k] = v.slice(0,100); has = true; }
+    });
+    var ref = document.referrer;
+    var external = ref && ref.indexOf(location.host) === -1 ? ref.slice(0,200) : '';
+    if(has){
+      tags.landing_page = location.pathname;
+      if(external) tags.referrer = external;
+      store.setItem(KEY, JSON.stringify(tags));
+    } else if(!store.getItem(KEY)){
+      var first = { landing_page: location.pathname };
+      if(external) first.referrer = external;
+      store.setItem(KEY, JSON.stringify(first));
+    }
+    var form = document.querySelector('form[name="contact"]');
+    if(form){
+      var saved = JSON.parse(store.getItem(KEY) || '{}');
+      Object.keys(saved).forEach(function(k){
+        var input = form.querySelector('input[type="hidden"][name="' + k + '"]');
+        if(input) input.value = saved[k];
+      });
+    }
+  } catch(e){}
+})();
 </script>
 </body>
 </html>
