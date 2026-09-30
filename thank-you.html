@@ -127,20 +127,26 @@ nav{
 }
 .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--ink);border-color:var(--brass);}
 
+/* Menu button: 44px tap target; bars are centred and offset with
+   transforms so the ✕ always crosses exactly in the middle. */
 .nav-toggle{
   display:none;
+  position:relative;
   background:none;border:none;cursor:pointer;
-  width:34px;height:34px;padding:7px;
-  flex-direction:column;justify-content:space-between;
+  width:44px;height:44px;padding:0;margin-right:-10px;
+  -webkit-tap-highlight-color:transparent;
 }
 .nav-toggle span{
-  display:block;height:1.5px;width:100%;
+  position:absolute;left:12px;right:12px;top:50%;
+  height:1.5px;margin-top:-.75px;
   background:var(--ink);
-  transition:transform .25s ease,opacity .2s ease;
+  transition:transform .28s cubic-bezier(.4,0,.2,1),opacity .18s ease;
 }
-.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-toggle span:nth-child(1){transform:translateY(-6px) rotate(0);}
+.nav-toggle span:nth-child(3){transform:translateY(6px) rotate(0);}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(0) rotate(45deg);}
 .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
-.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(0) rotate(-45deg);}
 
 h1{
   font-family:var(--display);
@@ -275,8 +281,8 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
   .hero{padding:64px 0 56px;}
   .nav-links{gap:18px;}
   .founder{grid-template-columns:1fr;}
-  nav{flex-wrap:wrap;position:relative;}
-  .nav-toggle{display:flex;}
+  nav{flex-wrap:wrap;position:relative;align-items:center;}
+  .nav-toggle{display:block;}
   .nav-links{
     display:none;
     flex-direction:column;
@@ -292,6 +298,10 @@ footer a:hover{color:var(--ink);border-color:var(--brass);}
     font-size:12px;
   }
   .nav-links a:first-child{border-top:1px solid var(--rule);}
+  /* Open menu: the nav's own bottom rule becomes the line under the
+     last link, instead of leaving an empty band below it. */
+  .nav-links.open{margin-bottom:-26px;}
+  .nav-links a:last-child{border-bottom:none;}
 }
 
   form{max-width:560px;margin-top:8px;}
@@ -386,6 +396,41 @@ if('IntersectionObserver' in window && revealEls.length){
 } else {
   revealEls.forEach(function(el){ el.classList.add('in'); });
 }
+
+// Campaign attribution: remember UTM tags for this visit (session only,
+// no cookies) so the contact form can include them in the submission.
+(function(){
+  var KEY = 'ballintra_attribution';
+  var FIELDS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var store;
+  try { store = window.sessionStorage; store.getItem(KEY); } catch(e){ return; }
+  try {
+    var q = new URLSearchParams(location.search), tags = {}, has = false;
+    FIELDS.forEach(function(k){
+      var v = q.get(k);
+      if(v){ tags[k] = v.slice(0,100); has = true; }
+    });
+    var ref = document.referrer;
+    var external = ref && ref.indexOf(location.host) === -1 ? ref.slice(0,200) : '';
+    if(has){
+      tags.landing_page = location.pathname;
+      if(external) tags.referrer = external;
+      store.setItem(KEY, JSON.stringify(tags));
+    } else if(!store.getItem(KEY)){
+      var first = { landing_page: location.pathname };
+      if(external) first.referrer = external;
+      store.setItem(KEY, JSON.stringify(first));
+    }
+    var form = document.querySelector('form[name="contact"]');
+    if(form){
+      var saved = JSON.parse(store.getItem(KEY) || '{}');
+      Object.keys(saved).forEach(function(k){
+        var input = form.querySelector('input[type="hidden"][name="' + k + '"]');
+        if(input) input.value = saved[k];
+      });
+    }
+  } catch(e){}
+})();
 </script>
 </body>
 </html>
