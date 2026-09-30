@@ -532,11 +532,11 @@ if('IntersectionObserver' in window && revealEls.length){
     var external = ref && ref.indexOf(location.host) === -1 ? ref.slice(0,200) : '';
     if(has){
       tags.landing_page = location.pathname;
-      if(external) tags.referrer = external;
+      if(external) tags.external_referrer = external;
       store.setItem(KEY, JSON.stringify(tags));
     } else if(!store.getItem(KEY)){
       var first = { landing_page: location.pathname };
-      if(external) first.referrer = external;
+      if(external) first.external_referrer = external;
       store.setItem(KEY, JSON.stringify(first));
     }
     var form = document.querySelector('form[name="contact"]');
